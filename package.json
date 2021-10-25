@@ -1,31 +1,43 @@
 {
-  "name": "cryptocurrencyReminder",
-	"displayName": "Cryptocurrency Reminder",
-	"description": "Show the price of your favorite cryptocurrencies and set price alerts in vscode",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.61.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:cryptocurrencyReminder.helloWorld"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [{
-            "command": "cryptocurrencyReminder.helloWorld",
-            "title": "Hello World"
-
-		}]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
+    "name": "cryptocurrency-reminder",
+    "publisher": "IanYet",
+    "displayName": "Cryptocurrency Reminder",
+    "description": "Show the price of your favorite cryptocurrencies and set price alerts in vscode",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "cryptocurrencyReminder.helloWorld",
+                "title": "Hello World"
+            }
+        ],
+        "configuration":{
+            "title": "cryptocurrency-reminder configuration",
+            "properties": {
+                "cryptocurrency-reminder.currencies":{
+                    "type":"array",
+                    "default":[{}],
+                    "description": "All cryptocurrencies"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "yarn run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
         "@types/vscode": "^1.61.0",
         "@types/glob": "^7.1.4",
         "@types/mocha": "^9.0.0",
@@ -36,5 +48,4 @@
         "typescript": "^4.4.3",
         "@vscode/test-electron": "^1.6.2"
     }
-
 }
